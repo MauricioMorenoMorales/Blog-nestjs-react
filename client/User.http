@@ -1,0 +1,29 @@
+@host = http://localhost:3333/users
+
+###
+POST {{host}}
+Content-Type: application/json
+
+{
+	"name": "Thomas Test",
+	"username": "thomas4"
+}
+
+
+### Get all users
+GET {{host}}
+
+### Get one user
+GET {{host}}/1
+
+###
+DELETE {{host}}/3
+
+### Update an user
+PUT {{host}}/1
+Content-Type: application/json
+
+{
+	"name": "Will test",
+	"username": "Heinrich66"
+}

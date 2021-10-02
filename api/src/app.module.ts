@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -13,7 +14,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
       password: process.env.PASSWORD,
+      retryAttempts: 3,
+      retryDelay: 3000,
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
