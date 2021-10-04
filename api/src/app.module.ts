@@ -15,7 +15,7 @@ import { AuthModule } from './auth/auth.module';
       autoLoadEntities: true,
       synchronize: true,
       password: process.env.PASSWORD,
-      retryAttempts: 3,
+      retryAttempts: 2,
       retryDelay: 3000,
     }),
     UserModule,

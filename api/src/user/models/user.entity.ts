@@ -4,16 +4,17 @@ import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
+
   @Column()
   name: string;
 
   @Column({ unique: true })
   username: string;
 
-  @Column()
+  @Column({ nullable: false, default: 'none' })
   email: string;
 
-  @Column()
+  @Column({ nullable: false, default: 'none' })
   password: string;
 
   @BeforeInsert()
