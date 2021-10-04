@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -14,10 +15,11 @@ import { UserModule } from './user/user.module';
       autoLoadEntities: true,
       synchronize: true,
       password: process.env.PASSWORD,
-      retryAttempts: 3,
+      retryAttempts: 2,
       retryDelay: 3000,
     }),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

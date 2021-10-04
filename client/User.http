@@ -1,12 +1,14 @@
 @host = http://localhost:3333/users
 
-###
+### entity and interface related to this requests are in ./user/models/user.entity
 POST {{host}}
 Content-Type: application/json
 
 {
-	"name": "Thomas Test",
-	"username": "thomas4"
+	"name": "Leonora2",
+	"username": "Aquitania2",
+	"password": "A simple password",
+	"email": "leonora2@gmail.com"
 }
 
 
@@ -17,13 +19,24 @@ GET {{host}}
 GET {{host}}/1
 
 ###
-DELETE {{host}}/3
+DELETE {{host}}/23
 
-### Update an user
-PUT {{host}}/1
+### Update an user but email and password won't be updated
+PUT {{host}}/21
 Content-Type: application/json
 
 {
-	"name": "Will test",
-	"username": "Heinrich66"
+	"name": "Leonora de Aquitania",
+	"username": "Leonora666",
+	"password": "should not work",
+	"email": "test1@gmail.com"
+}
+
+### Logins and get the connection's token
+POST {{host}}/login
+Content-Type: application/json
+
+{
+	"email": "leonora2@gmail.com",
+	"password": "A simple password"
 }
